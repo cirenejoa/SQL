@@ -1,0 +1,24 @@
+--create a jewelry store database
+CREATE TABLE jewelry_store (id INTEGER PRIMARY KEY, piece TEXT, metal TEXT, gemstone TEXT, price INTEGER);
+
+INSERT INTO jewelry_store VALUES (1, "ring", "18k yellow gold", "emerald", 8000);
+INSERT INTO jewelry_store VALUES (2, "bangle", "14k yellow gold", "diamonds", 6000);
+INSERT INTO jewelry_store VALUES (3, "bracelet", "14k yellow gold", "none", 400);
+INSERT INTO jewelry_store VALUES (4, "necklace", "14k yellow gold", "diamonds", 700);
+INSERT INTO jewelry_store VALUES (5, "necklace", "14k yellow gold", "none", 600);
+INSERT INTO jewelry_store VALUES (6, "ring", "14k yellow gold", "tanzanite", 600);
+INSERT INTO jewelry_store VALUES (7, "earrings", "14k yellow gold", "garnet", 300);
+INSERT INTO jewelry_store VALUES (8, "earrings", "14k yellow gold", "moissanite", 400);
+INSERT INTO jewelry_store VALUES (9, "ring", "14k rose gold", "diamonds", 700);
+INSERT INTO jewelry_store VALUES (10, "bracelet", "14k yellow gold", "none", 600);
+INSERT INTO jewelry_store VALUES (11, "necklace", "14k yellow gold" , "none", 500);
+INSERT INTO jewelry_store VALUES (12, "necklace", "14k yellow gold", "none", 400);
+INSERT INTO jewelry_store VALUES (13, "ring", "14k yellow gold", "diamonds", 500);
+INSERT INTO jewelry_store VALUES (14, "necklace", "22k yellow gold", "none", 10000);
+INSERT INTO jewelry_store VALUES (15, "bangle", "22k yellow gold", "none", 15000);
+
+--display the database ordered by price
+SELECT * FROM jewelry_store ORDER BY price;
+
+--what is the total price of each of the piece catagories?
+SELECT piece, sum(price) FROM jewelry_store GROUP BY piece;
