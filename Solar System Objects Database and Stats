@@ -57,13 +57,13 @@ SELECT body, type_of_object, mean_radius AS radius_in_km FROM solar_system_objec
     ORDER BY mean_radius DESC;
  
 --After having a look at what I selected, I wanted to narrow the results within a specific range. I then included a HAVING clause to filter to my desired range.
-SELECT body, type_of_object, mean_radius AS radius_in_km FROM solar_system_objects
+SELECT body, type_of_object, ROUND(mean_radius) AS radius_in_km FROM solar_system_objects
     GROUP BY body
     HAVING mean_radius < 3000 OR mean_radius > 1000
     ORDER BY mean_radius DESC;
 
 --I decided to move forward working only with celestial bodies that were Satellites to various Planets. To do this, I used the LIKE clause to show only the Satellites.
-SELECT body, type_of_object, mean_radius AS radius_in_km FROM solar_system_objects
+SELECT body, type_of_object, ROUND(mean_radius) AS radius_in_km FROM solar_system_objects
     WHERE type_of_object LIKE "%satellite%"
     GROUP BY body
     ORDER BY mean_radius DESC;
@@ -96,5 +96,5 @@ FROM solar_system_objects
     GROUP BY host_planet;
  
 --After assessing radius ranges and the number of satellites per planet, I decided I wanted to know which satellites were orbitting saturn that had a radius over 700 km.
-SELECT body, type_of_object, mean_radius AS radius_in_km FROM solar_system_objects
+SELECT body, type_of_object, ROUND(mean_radius) AS radius_in_km FROM solar_system_objects
     WHERE type_of_object LIKE "satellite of Saturn" AND mean_radius > 700;
